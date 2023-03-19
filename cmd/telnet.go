@@ -10,7 +10,7 @@ import (
 
 func init() {
 	RootCmd.AddCommand(TelnetCmd)
-	TelnetCmd.Flags().IntP("timeout", "t", 5, "-- timeout")
+	TelnetCmd.Flags().IntP("timeout", "t", 5, "--timeout")
 }
 
 var TelnetCmd = &cobra.Command{
@@ -19,11 +19,12 @@ var TelnetCmd = &cobra.Command{
 	Long:  "Usage: ./cli telnet 127.0.0.1 3306",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 2 {
-			log.Fatalln("You have entered the wrong parameter, Usage: cli telnet 127.0.0.1 3306")
+			cmdlog.Error("You have entered the wrong parameter, Usage: cli telnet 127.0.0.1 3306")
+			log.Fatalln("You have entered the wrong parameter, Usage: ./cli telnet 127.0.0.1 3306")
 		}
 		timeout, err := cmd.Flags().GetInt("timeout")
 		if err != nil {
-			log.Fatalln(err)
+			cmdlog.Error(err)
 		}
 		host := args[0]
 		port := args[1]

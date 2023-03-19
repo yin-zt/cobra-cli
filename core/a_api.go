@@ -3,7 +3,12 @@ package core
 import (
 	"crypto/tls"
 	"github.com/astaxie/beego/httplib"
+	"github.com/yin-zt/cobra-cli/utils"
 	"time"
+)
+
+var (
+	corelog = utils.GetLog()
 )
 
 type Common struct {

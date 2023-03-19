@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 	"github.com/yin-zt/cobra-cli/core"
+	"github.com/yin-zt/cobra-cli/utils"
 	"log"
 )
 
@@ -16,15 +17,18 @@ please use cli help for detailed usage`,
 }
 
 var (
-	cli = core.NewCli()
+	cli    = core.NewCli()
+	cmdlog = utils.GetLog()
 )
 
-//func init() {
-//	net_tools.TelnetCmd.Flags().IntP("timeout", "t", 5, "-- timeout")
-//}
+func init() {
+	defer cmdlog.Flush()
+	cmdlog.Info("success to init seelog ")
+}
 
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {
+		cmdlog.Errorf("%s", err)
 		log.Fatalln(err)
 	}
 }
