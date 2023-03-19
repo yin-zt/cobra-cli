@@ -4,11 +4,10 @@ import (
 	filedriver "github.com/goftp/file-driver"
 	"github.com/goftp/server"
 	"github.com/yin-zt/cobra-cli/utils"
+	"log"
 )
 
 func (this *Common) Ftpserver(user, pass, host, path string, port int) {
-	defer corelog.Flush()
-
 	if path == "" {
 		if v, err := utils.Home(); err == nil {
 			path = v
@@ -32,6 +31,7 @@ func (this *Common) Ftpserver(user, pass, host, path string, port int) {
 	err := ftp.ListenAndServe()
 	if err != nil {
 		corelog.Errorf("Error starting ftp server:", err)
+		log.Fatalln("Error starting ftp server:", err)
 	}
 
 }
