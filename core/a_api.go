@@ -19,6 +19,11 @@ type Cli struct {
 	//Conf *config.Config
 }
 
+func init() {
+	defer corelog.Flush()
+	corelog.Info("success to init seelog: corelog")
+}
+
 func NewCli() *Cli {
 
 	var (
