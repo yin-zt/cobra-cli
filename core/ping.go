@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
+	"github.com/yin-zt/cobra-cli/utils"
 	"net"
 	"time"
 )
@@ -29,26 +30,7 @@ func init() {
 	originBytes = make([]byte, MaxPg)
 }
 
-func CheckSum(data []byte) (rt uint16) {
-	var (
-		sum    uint32
-		length int = len(data)
-		index  int
-	)
-	for length > 1 {
-		sum += uint32(data[index])<<8 + uint32(data[index+1])
-		index += 2
-		length -= 2
-	}
-	if length > 0 {
-		sum += uint32(data[index]) << 8
-	}
-	rt = uint16(sum) + uint16(sum>>16)
-
-	return ^rt
-}
-
-func Ping(domain string, PS, Count int) {
+func (this *Common) Ping(domain string, PS, Count int) {
 	fmt.Println("Start Ping command detection, target address:", domain)
 	var (
 		icmp                      ICMP
@@ -75,7 +57,7 @@ func Ping(domain string, PS, Count int) {
 	//fmt.Println(buffer.Bytes())
 	binary.Write(&buffer, binary.BigEndian, originBytes[0:PS])
 	b := buffer.Bytes()
-	binary.BigEndian.PutUint16(b[2:], CheckSum(b))
+	binary.BigEndian.PutUint16(b[2:], utils.CheckSum(b))
 
 	//fmt.Println(b)
 	fmt.Printf("\n正在 Ping %s 具有 %d(%d) 字节的数据:\n", raddr.String(), PS, PS+28)

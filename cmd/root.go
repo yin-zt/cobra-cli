@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
+	"github.com/yin-zt/cobra-cli/core"
 	"log"
 )
 
@@ -13,6 +14,10 @@ var RootCmd = &cobra.Command{
 and support detection of middleware such as redis,mysql,traceroute, etc., 
 please use cli help for detailed usage`,
 }
+
+var (
+	cli = core.NewCli()
+)
 
 //func init() {
 //	net_tools.TelnetCmd.Flags().IntP("timeout", "t", 5, "-- timeout")

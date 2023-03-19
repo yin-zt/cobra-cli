@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func TelnetCheck(host string, tout int) error {
+func (this *Common) TelnetCheck(host string, tout int) error {
 	timeout := time.Duration(tout) * time.Second
 	fmt.Printf("Start port connectivity detection, destination address:%s,timeout time:%v\n", host, timeout.String())
 	t1 := time.Now()

@@ -3,7 +3,6 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"github.com/yin-zt/cobra-cli/core"
 	"github.com/yin-zt/cobra-cli/utils"
 	"log"
 	"os"
@@ -11,6 +10,7 @@ import (
 
 func init() {
 	RootCmd.AddCommand(TelnetCmd)
+	TelnetCmd.Flags().IntP("timeout", "t", 5, "-- timeout")
 }
 
 var TelnetCmd = &cobra.Command{
@@ -31,7 +31,7 @@ var TelnetCmd = &cobra.Command{
 			log.Printf("Please enter the correct IP address:%v", host)
 			os.Exit(1)
 		}
-		if err := core.TelnetCheck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
+		if err := cli.Util.TelnetCheck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
 			log.Fatalln(err)
 		}
 		log.Printf("telnet %s connection successful", host)

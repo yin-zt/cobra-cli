@@ -1,8 +1,8 @@
 package cmd
 
 import (
+	"fmt"
 	"github.com/spf13/cobra"
-	"github.com/yin-zt/cobra-cli/core"
 	"log"
 )
 
@@ -15,10 +15,10 @@ func init() {
 var PingCmd = &cobra.Command{
 	Use:   "ping",
 	Short: "Simulate the ping command to send icmp packets to the target host",
-	Long:  "net-tools ping 192.168.1.1 -c 10 -l 1000",
+	Long:  "cli ping 192.168.1.1 -c 10 -l 1000",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
-			log.Fatalln("You have entered the wrong parameter, Usage: ./net-tools ping 192.168.1.1")
+			log.Fatalln("You have entered the wrong parameter, Usage: ./cli ping 192.168.1.1")
 		}
 		counts, err := cmd.Flags().GetInt("count")
 		if err != nil {
@@ -28,6 +28,8 @@ var PingCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		core.Ping(args[0], size, counts)
+		fmt.Println(size, counts)
+		fmt.Println(args[0])
+		cli.Util.Ping(args[0], size, counts)
 	},
 }
