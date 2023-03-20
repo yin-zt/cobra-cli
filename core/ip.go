@@ -2,6 +2,7 @@ package core
 
 import (
 	"net"
+	"regexp"
 	"strings"
 )
 
@@ -19,4 +20,25 @@ func (this *Common) GetNetworkIP() string {
 	idx := strings.LastIndex(localAddr, ":")
 	return localAddr[0:idx]
 
+}
+
+// GetAllIps 获取主机的所有IP信息
+func (this *Common) GetAllIps() []string {
+	var response any
+	ips := []string{}
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		response = err
+		panic(response)
+	}
+	for _, addr := range addrs {
+		ip := addr.String()
+		pos := strings.Index(ip, "/")
+		if match, _ := regexp.MatchString("(\\d+\\.){3}\\d+", ip); match {
+			if pos != -1 {
+				ips = append(ips, ip[0:pos])
+			}
+		}
+	}
+	return ips
 }
