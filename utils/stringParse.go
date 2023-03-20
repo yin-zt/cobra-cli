@@ -3,6 +3,7 @@ package utils
 import (
 	"bufio"
 	"encoding/json"
+	"github.com/henrylee2cn/mahonia"
 	"os"
 	"strings"
 )
@@ -23,4 +24,15 @@ func StdinJson() (interface{}, string) {
 		obj = nil
 	}
 	return obj, in
+}
+
+// GBKToUTF 作用是将GBK编码的字符串转换为UTF-8编码的字符串
+func GBKToUTF(str string) string {
+	decoder := mahonia.NewDecoder("GBK")
+	if decoder != nil {
+		if str, ok := decoder.ConvertStringOK(str); ok {
+			return str
+		}
+	}
+	return str
 }
