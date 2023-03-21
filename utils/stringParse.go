@@ -2,7 +2,9 @@ package utils
 
 import (
 	"bufio"
+	"crypto/md5"
 	"encoding/json"
+	"fmt"
 	"github.com/henrylee2cn/mahonia"
 	"os"
 	"strings"
@@ -35,4 +37,12 @@ func GBKToUTF(str string) string {
 		}
 	}
 	return str
+}
+
+// MD5 输出字符串的md5值
+func MD5(str string) string {
+
+	md := md5.New()
+	md.Write([]byte(str))
+	return fmt.Sprintf("%x", md.Sum(nil))
 }

@@ -1,6 +1,9 @@
 package utils
 
 import (
+	"crypto/md5"
+	"encoding/hex"
+	"io"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -79,4 +82,45 @@ func ReadFile(path string) string {
 	} else {
 		return ""
 	}
+}
+
+// WriteFile 把输入参数的内容变量写到文件中；如果存在文件，则先删除后创建；如果不存在则直接创建
+func WriteFile(path string, content string) bool {
+	var f *os.File
+	var err error
+	if IsExist(path) {
+		err = os.Remove(path)
+		if err != nil {
+			return false
+		}
+		f, err = os.Create(path)
+	} else {
+		f, err = os.Create(path)
+	}
+
+	if err == nil {
+		defer f.Close()
+		if _, err = io.WriteString(f, content); err == nil {
+			//log.Debug(err)
+			return true
+		} else {
+			return false
+		}
+	} else {
+		//log.Warn(err)
+		return false
+	}
+
+}
+
+// MD5File 输出文件内容的md5值
+func MD5File(fn string) string {
+	file, err := os.Open(fn)
+	if err != nil {
+		return ""
+	}
+	defer file.Close()
+	md5 := md5.New()
+	io.Copy(md5, file)
+	return hex.EncodeToString(md5.Sum(nil))
 }
