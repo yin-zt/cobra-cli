@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
+	"runtime"
 	"strings"
 )
 
@@ -123,4 +124,14 @@ func MD5File(fn string) string {
 	md5 := md5.New()
 	io.Copy(md5, file)
 	return hex.EncodeToString(md5.Sum(nil))
+}
+
+// IsWindows 判断是否为windows操作系统
+func IsWindows() bool {
+
+	if "windows" == runtime.GOOS {
+		return true
+	}
+	return false
+
 }

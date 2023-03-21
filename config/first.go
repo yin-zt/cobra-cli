@@ -14,4 +14,5 @@ const (
 	 </formats>  
 </seelog>
 `
+	StoreCmd = "/tmp/script/"
 )
