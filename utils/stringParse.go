@@ -46,3 +46,43 @@ func MD5(str string) string {
 	md.Write([]byte(str))
 	return fmt.Sprintf("%x", md.Sum(nil))
 }
+
+// JsonEncodePretty 会尝试将传入的接口类型的变量编码成json格式输出
+func JsonEncodePretty(o interface{}) string {
+
+	resp := ""
+	switch o.(type) {
+	case map[string]interface{}:
+		if data, err := json.Marshal(o); err == nil {
+			resp = string(data)
+		}
+	case map[string]string:
+		if data, err := json.Marshal(o); err == nil {
+			resp = string(data)
+		}
+	case []interface{}:
+		if data, err := json.Marshal(o); err == nil {
+			resp = string(data)
+		}
+	case []string:
+		if data, err := json.Marshal(o); err == nil {
+			resp = string(data)
+		}
+	case string:
+		resp = o.(string)
+
+	default:
+		if data, err := json.Marshal(o); err == nil {
+			resp = string(data)
+		}
+
+	}
+	var v interface{}
+	if ok := json.Unmarshal([]byte(resp), &v); ok == nil {
+		if buf, ok := json.MarshalIndent(v, "", "  "); ok == nil {
+			resp = string(buf)
+		}
+	}
+	return resp
+
+}
