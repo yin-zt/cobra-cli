@@ -99,3 +99,9 @@ func (this *Common) Jq(module string, action string) {
 	}
 
 }
+
+// Json_val 使用方法是 echo '{"tt":"helloworld", "bb": "fufu"}' | cli json_val
+// 直接调用jq方法
+func (this *Common) Json_val(module string, action string) {
+	this.Jq(module, action)
+}
