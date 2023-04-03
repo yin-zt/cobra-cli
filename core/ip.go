@@ -42,3 +42,17 @@ func (this *Common) GetAllIps() []string {
 	}
 	return ips
 }
+
+// GetLocalIP 获取本地IP，先获取本地所有ip信息，并遍历每一个ip，如果ip中有10|172开头的ip直接返回；
+// 否则，就返回127.0.0.1
+func (this *Common) GetLocalIP() string {
+
+	ips := this.GetAllIps()
+	for _, v := range ips {
+		if strings.HasPrefix(v, "10.") || strings.HasPrefix(v, "172.") || strings.HasPrefix(v, "172.") {
+			return v
+		}
+	}
+	return "127.0.0.1"
+
+}
