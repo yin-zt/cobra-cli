@@ -217,13 +217,13 @@ func (this *Cli) Shell() {
 	}
 
 	// 本地执行脚本cmds并输出结果
-	result, _, _ = this.ExecCmd(cmds, timeout, nil)
+	result, _, _ = this.Exec(cmds, timeout, nil)
 	fmt.Println(result)
 }
 
 // 如果task_id 为nil, 则在/tmp目录下使用随机数创建一个文件，并打开此文件用来保存执行cmd命令的输出；
 // 调用exec.CommandContext来执行cmd
-func (this *Cli) ExecCmd(cmd []string, timeout int, kw map[string]string) (string, string, int) {
+func (this *Cli) Exec(cmd []string, timeout int, kw map[string]string) (string, string, int) {
 	var re any
 	defer func() {
 		if re = recover(); re != nil {

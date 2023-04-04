@@ -32,3 +32,32 @@ func (this *Cli) IsWindows() bool {
 	return false
 
 }
+
+// 在本地执行cmd列表里的命令，程序在linux下将会如下执行：
+// linux: bash -c cmd1 cmd2 cmd3
+func (this *Cli) ExecCmd(cmd []string, timeout int) string {
+
+	var cmds []string
+
+	if "windows" == runtime.GOOS {
+		cmds = []string{
+			"cmd",
+			"/C",
+		}
+		for _, v := range cmd {
+			cmds = append(cmds, v)
+		}
+
+	} else {
+		cmds = []string{
+			"/bin/bash",
+			"-c",
+		}
+		for _, v := range cmd {
+			cmds = append(cmds, v)
+		}
+
+	}
+	result, _, _ := this.Exec(cmds, timeout, nil)
+	return result
+}
