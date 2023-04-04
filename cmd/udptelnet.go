@@ -31,7 +31,7 @@ var UdptelnetCmd = &cobra.Command{
 			log.Printf("Please enter the correct IP address:%v", host)
 			os.Exit(1)
 		}
-		if err := cli.Util.UdpTelnetChekck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
+		if err := cli.UdpTelnetChekck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
 			log.Fatalln(err)
 		}
 		log.Printf("udptelnet %s connection successful", host)

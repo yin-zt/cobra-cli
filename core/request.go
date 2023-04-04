@@ -14,7 +14,7 @@ var (
 	html string
 )
 
-func (this *Common) Request(url, data string) {
+func (this *Cli) Request(url, data string) {
 
 	if data == "" {
 		req = httplib.Get(url)

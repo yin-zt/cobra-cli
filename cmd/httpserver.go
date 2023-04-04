@@ -28,6 +28,6 @@ var HttpServerCmd = &cobra.Command{
 		if err != nil {
 			cmdlog.Error(err)
 		}
-		cli.Util.Httpserver(hostIp, path, port)
+		cli.Httpserver(hostIp, path, port)
 	},
 }

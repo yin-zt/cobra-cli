@@ -24,6 +24,6 @@ var RequestCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		cli.Util.Request(url, data)
+		cli.Request(url, data)
 	},
 }

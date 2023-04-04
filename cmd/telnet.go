@@ -32,7 +32,7 @@ var TelnetCmd = &cobra.Command{
 			log.Printf("Please enter the correct IP address:%v", host)
 			os.Exit(1)
 		}
-		if err := cli.Util.TelnetCheck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
+		if err := cli.TelnetCheck(fmt.Sprintf("%v:%v", host, port), timeout); err != nil {
 			log.Fatalln(err)
 		}
 		log.Printf("telnet %s connection successful", host)

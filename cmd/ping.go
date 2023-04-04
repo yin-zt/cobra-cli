@@ -28,6 +28,6 @@ var PingCmd = &cobra.Command{
 		if err != nil {
 			cmdlog.Error(err)
 		}
-		cli.Util.Ping(args[0], size, counts)
+		cli.Ping(args[0], size, counts)
 	},
 }

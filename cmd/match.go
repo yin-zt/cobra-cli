@@ -28,6 +28,6 @@ var MatchCmd = &cobra.Command{
 		if err != nil {
 			cmdlog.Error(err)
 		}
-		cli.Util.Match(matchStr, matchMode, matchOutput)
+		cli.Match(matchStr, matchMode, matchOutput)
 	},
 }

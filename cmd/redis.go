@@ -30,7 +30,7 @@ var redisCmd = &cobra.Command{
 		}
 		commands, err := cmd.Flags().GetString("command")
 
-		if err := cli.Util.Redisexec(host, password, commands); err != nil {
+		if err := cli.Redisexec(host, password, commands); err != nil {
 			log.Fatalln(err)
 		}
 		log.Printf("redis %s exec comamnd successfully", host)

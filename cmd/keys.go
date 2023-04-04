@@ -13,6 +13,6 @@ var KeysCmd = &cobra.Command{
 	Short: "find out the keys of map, map value from scan keyboard",
 	Long:  "cli keys",
 	Run: func(cmd *cobra.Command, args []string) {
-		cli.Util.Keys()
+		cli.Keys()
 	},
 }

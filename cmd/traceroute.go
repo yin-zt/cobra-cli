@@ -18,6 +18,6 @@ var traceRouteCmd = &cobra.Command{
 			log.Fatalln("You have entered the wrong parameter, Usage: ./cli traceroute 192.168.1.1")
 		}
 		host := args[0]
-		cli.Util.Trace(host)
+		cli.Trace(host)
 	},
 }

@@ -7,7 +7,7 @@ import (
 )
 
 // GetNetworkIP 作用是获取与"外网"通信的网卡IP
-func (this *Common) GetNetworkIP() string {
+func (this *Cli) GetNetworkIP() string {
 	var (
 		err  error
 		conn net.Conn
@@ -23,7 +23,7 @@ func (this *Common) GetNetworkIP() string {
 }
 
 // GetAllIps 获取主机的所有IP信息
-func (this *Common) GetAllIps() []string {
+func (this *Cli) GetAllIps() []string {
 	var response any
 	ips := []string{}
 	addrs, err := net.InterfaceAddrs()
@@ -45,7 +45,7 @@ func (this *Common) GetAllIps() []string {
 
 // GetLocalIP 获取本地IP，先获取本地所有ip信息，并遍历每一个ip，如果ip中有10|172开头的ip直接返回；
 // 否则，就返回127.0.0.1
-func (this *Common) GetLocalIP() string {
+func (this *Cli) GetLocalIP() string {
 
 	ips := this.GetAllIps()
 	for _, v := range ips {

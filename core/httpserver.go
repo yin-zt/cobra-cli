@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func (this *Common) Httpserver(host, path string, port int) {
+func (this *Cli) Httpserver(host, path string, port int) {
 	defer corelog.Flush()
 
 	if path == "" {

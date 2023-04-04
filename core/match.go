@@ -7,7 +7,7 @@ import (
 )
 
 // Match 检查给定字符串满足正则的子串
-func (this *Common) Match(matchStr, modeStr, outputStr string) {
+func (this *Cli) Match(matchStr, modeStr, outputStr string) {
 	var is_all bool
 	for i := 0; i < len(outputStr); i++ {
 		if string(outputStr[i]) == "i" {

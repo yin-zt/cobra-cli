@@ -21,10 +21,10 @@ var IpCmd = &cobra.Command{
 			log.Fatalln("You have entered the wrong parameter, Usage: ./cli ip or ./cli ip a")
 		}
 		if len(args) == 0 {
-			fmt.Println(cli.Util.GetNetworkIP())
+			fmt.Println(cli.GetNetworkIP())
 		} else {
 			var result string
-			result = strings.Join(cli.Util.GetAllIps(), "\n")
+			result = strings.Join(cli.GetAllIps(), "\n")
 			fmt.Println(result)
 		}
 	},

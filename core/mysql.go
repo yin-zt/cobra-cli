@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func (this *Common) MysqlPingCheck(host, username, password, command string) error {
+func (this *Cli) MysqlPingCheck(host, username, password, command string) error {
 	en, err := xorm.NewEngine("mysql", username+":"+password+"@tcp("+host+")/mysql?charset=utf8&parseTime=true")
 	defer en.Close()
 	if err != nil {

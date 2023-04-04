@@ -5,7 +5,7 @@ import (
 	"github.com/yin-zt/cobra-cli/utils"
 )
 
-func (this *Common) Keys() {
+func (this *Cli) Keys() {
 	obj, _ := this.StdinJson()
 	fmt.Println(obj)
 	var keys []string

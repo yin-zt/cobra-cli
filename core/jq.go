@@ -10,7 +10,7 @@ import (
 
 // Jq 使用方法是echo '{"tt":"helloworld", "bb": "fufu"}' | gmd jq
 // json解析器，-k json中的key，嵌套时使用逗号分隔，如 -k data,rows,ip
-func (this *Common) Jq(module string, action string) {
+func (this *Cli) Jq(module string, action string) {
 
 	data, _ := this.StdinJson()
 	if data == nil {
@@ -102,6 +102,6 @@ func (this *Common) Jq(module string, action string) {
 
 // Json_val 使用方法是 echo '{"tt":"helloworld", "bb": "fufu"}' | cli json_val
 // 直接调用jq方法
-func (this *Common) Json_val(module string, action string) {
+func (this *Cli) Json_val(module string, action string) {
 	this.Jq(module, action)
 }

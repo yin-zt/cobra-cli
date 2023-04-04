@@ -3,6 +3,7 @@ package core
 import (
 	"crypto/tls"
 	"github.com/astaxie/beego/httplib"
+	"github.com/takama/daemon"
 	"github.com/yin-zt/cobra-cli/utils"
 	"time"
 )
@@ -14,9 +15,14 @@ var (
 type Common struct {
 }
 
+type Daemon struct {
+	daemon.Daemon
+}
+
 type Cli struct {
 	Util *Common
 	//Conf *config.Config
+	_daemon *Daemon
 }
 
 func init() {

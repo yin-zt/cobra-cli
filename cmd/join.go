@@ -23,6 +23,6 @@ var JoinCmd = &cobra.Command{
 		if err != nil {
 			cmdlog.Error(err)
 		}
-		cli.Util.Join(joinStr, joinWord)
+		cli.Join(joinStr, joinWord)
 	},
 }

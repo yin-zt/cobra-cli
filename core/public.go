@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (this *Common) StdinJson() (interface{}, string) {
+func (this *Cli) StdinJson() (interface{}, string) {
 	var lines []string
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {

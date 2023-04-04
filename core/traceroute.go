@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func (this *Common) Trace(host string) {
+func (this *Cli) Trace(host string) {
 	// Tracing an IP packet route to www.baidu.com.
 	ips, err := net.LookupIP(host)
 	if err != nil {

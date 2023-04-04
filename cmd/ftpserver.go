@@ -39,6 +39,6 @@ var FtpServerCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		cli.Util.Ftpserver(username, password, hostIp, path, port)
+		cli.Ftpserver(username, password, hostIp, path, port)
 	},
 }

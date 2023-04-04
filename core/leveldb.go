@@ -20,7 +20,7 @@ var (
 	}
 )
 
-func (this *Common) LevelOperate(action, key, value, path string) {
+func (this *Cli) LevelOperate(action, key, value, path string) {
 	if path == "" {
 		if v, err := utils.Home(); err == nil {
 			path = v

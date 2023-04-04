@@ -17,6 +17,6 @@ var ShellCmd = &cobra.Command{
 	Short: "support excute command",
 	Long:  "cli shell -d path -f file -t 12 -u -a -x",
 	Run: func(cmd *cobra.Command, args []string) {
-		cli.Util.Shell()
+		cli.Shell()
 	},
 }

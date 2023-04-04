@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func (this *Common) Ftpserver(user, pass, host, path string, port int) {
+func (this *Cli) Ftpserver(user, pass, host, path string, port int) {
 	if path == "" {
 		if v, err := utils.Home(); err == nil {
 			path = v

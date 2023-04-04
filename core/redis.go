@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func (this *Common) Redisexec(redisHost, redisPassword, command string) error {
+func (this *Cli) Redisexec(redisHost, redisPassword, command string) error {
 	client := redis.NewClient(&redis.Options{
 		Addr:     redisHost,
 		Password: redisPassword, // no password set

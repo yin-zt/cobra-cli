@@ -9,7 +9,7 @@ import (
 // Kvs 使用方法是：echo [k1, k2, k3] | gmd kvs  || echo '{"k1": "v1", "k2": "v2"}' | gmd kvs
 // echo '{"aa": {"test":"helloworld"}, "bb": {"key1": "value"}}' | gmd kvs
 // 作用是将输入的列表样式的字符串或者字典样式的字符串，转换为显示友好的字典样式
-func (this *Common) Kvs() {
+func (this *Cli) Kvs() {
 	obj, _ := this.StdinJson()
 	var keys []string
 	switch obj.(type) {

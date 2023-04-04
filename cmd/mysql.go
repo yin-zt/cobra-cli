@@ -32,7 +32,7 @@ var mysqlCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		if err := cli.Util.MysqlPingCheck(args[0], username, password, rawsql); err != nil {
+		if err := cli.MysqlPingCheck(args[0], username, password, rawsql); err != nil {
 			log.Fatalln(err)
 		}
 		log.Printf("mysql %s exec sql successful", args[0])

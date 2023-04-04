@@ -20,9 +20,9 @@ var UuidCmd = &cobra.Command{
 			log.Fatalln("You have entered the wrong parameter, Usage: ./cli uuid or ./cli uuid new")
 		}
 		if len(args) == 0 {
-			fmt.Println(cli.Util.GetProductUUID())
+			fmt.Println(cli.GetProductUUID())
 		} else {
-			fmt.Println(cli.Util.GetUUID())
+			fmt.Println(cli.GetUUID())
 		}
 	},
 }

@@ -39,6 +39,6 @@ var SshCmd = &cobra.Command{
 		if err != nil {
 			cmdlog.Error(err)
 		}
-		cli.Util.Ssh(args[0], username, password, port, command)
+		cli.Ssh(args[0], username, password, port, command)
 	},
 }

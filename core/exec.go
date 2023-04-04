@@ -22,7 +22,7 @@ import (
 
 // Shell 使用方式：gmd shell  -d path -f file -t 12 -u -a -x
 // 如果本地存在fpath文件(path+file); 且没有位置参数-u；则执行fpath + 其他位置参数组成的命令
-func (this *Common) Shell() {
+func (this *Cli) Shell() {
 	//var err error
 	//var includeReg *regexp.Regexp
 	src := ""
@@ -223,7 +223,7 @@ func (this *Common) Shell() {
 
 // 如果task_id 为nil, 则在/tmp目录下使用随机数创建一个文件，并打开此文件用来保存执行cmd命令的输出；
 // 调用exec.CommandContext来执行cmd
-func (this *Common) Exec(cmd []string, timeout int, kw map[string]string) (string, string, int) {
+func (this *Cli) Exec(cmd []string, timeout int, kw map[string]string) (string, string, int) {
 	var re any
 	defer func() {
 		if re = recover(); re != nil {

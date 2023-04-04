@@ -34,6 +34,6 @@ var LevelDbCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		cli.Util.LevelOperate(operation, key, value, path)
+		cli.LevelOperate(operation, key, value, path)
 	},
 }

@@ -14,7 +14,7 @@ import (
 )
 
 // GetUUID 获取随机生成的UUID
-func (this *Common) GetUUID() string {
+func (this *Cli) GetUUID() string {
 	b := make([]byte, 48)
 	if _, err := io.ReadFull(rand.Reader, b); err != nil {
 		return ""
@@ -25,7 +25,7 @@ func (this *Common) GetUUID() string {
 }
 
 // GetProductUUID 获取本节点的UUID
-func (this *Common) GetProductUUID() string {
+func (this *Cli) GetProductUUID() string {
 
 	if "windows" == runtime.GOOS {
 		uuid := this.windowsProductUUID()
@@ -47,7 +47,7 @@ func (this *Common) GetProductUUID() string {
 
 // windowsProductUUID方法是在windows系统下先判断是否在用户家目录下存在.machine_id文件
 // 如果存在，则判断里面是否存在本机的uuid，如果没有则获取本机uuid再写入文件中
-func (this *Common) windowsProductUUID() string {
+func (this *Cli) windowsProductUUID() string {
 	user, err := user.Current()
 	if err != nil {
 		corelog.Debug(err)

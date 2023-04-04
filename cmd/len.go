@@ -13,6 +13,6 @@ var LenCmd = &cobra.Command{
 	Short: "Simulate the len command to figure out the length of object ",
 	Long:  "echo '{\"key1\": \"val1\", \"key2\": \"val2\"}' | cli len",
 	Run: func(cmd *cobra.Command, args []string) {
-		cli.Util.Len()
+		cli.Len()
 	},
 }

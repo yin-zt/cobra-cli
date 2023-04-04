@@ -29,7 +29,7 @@ var sqliteCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalln(err)
 		}
-		if err := cli.Util.OperateSqlite(filename, sqlString, table); err != nil {
+		if err := cli.OperateSqlite(filename, sqlString, table); err != nil {
 			log.Fatalln(err)
 		}
 		log.Println("sqlite [default: localhost] exec sql successful")

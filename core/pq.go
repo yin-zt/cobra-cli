@@ -11,7 +11,7 @@ import (
 
 // Pq 使用方法是 cli pq -m html -f xxx.html
 // 目的是查询html文件中所有href属性的值，并将每个html中的href组件的链接和内容以字典方式进入列表中返回
-func (this *Common) Pq(module string, action string) {
+func (this *Cli) Pq(module string, action string) {
 	var (
 		err   error
 		dom   *goquery.Document

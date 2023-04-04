@@ -13,6 +13,6 @@ var KvsCmd = &cobra.Command{
 	Short: "receive input and print it in friendly",
 	Long:  "cli kvs",
 	Run: func(cmd *cobra.Command, args []string) {
-		cli.Util.Kvs()
+		cli.Kvs()
 	},
 }

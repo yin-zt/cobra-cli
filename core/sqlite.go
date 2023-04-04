@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (this *Common) OperateSqlite(filename, sqlStr, table string) error {
+func (this *Cli) OperateSqlite(filename, sqlStr, table string) error {
 	var (
 		err      error
 		v        interface{}
@@ -70,7 +70,7 @@ func (this *Common) OperateSqlite(filename, sqlStr, table string) error {
 }
 
 // SqliteQuery 适配在sqlite3上执行查询命令
-func (this *Common) SqliteQuery(filename string, s string) ([]map[string]interface{}, error) {
+func (this *Cli) SqliteQuery(filename string, s string) ([]map[string]interface{}, error) {
 	var (
 		err     error
 		db      *sql.DB
@@ -135,7 +135,7 @@ func (this *Common) SqliteQuery(filename string, s string) ([]map[string]interfa
 }
 
 // SqliteInsert 适配在sqlite3上执行插入命令
-func (this *Common) SqliteInsert(filename string, table string, records []interface{}) (*sql.DB, error) {
+func (this *Cli) SqliteInsert(filename string, table string, records []interface{}) (*sql.DB, error) {
 
 	var (
 		err error
@@ -263,7 +263,7 @@ func (this *Common) SqliteInsert(filename string, table string, records []interf
 }
 
 // SqliteExec 适配在sqlite3上执行操作命令
-func (this *Common) SqliteExec(filename string, s string) (int64, error) {
+func (this *Cli) SqliteExec(filename string, s string) (int64, error) {
 	var (
 		err    error
 		db     *sql.DB

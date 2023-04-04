@@ -30,7 +30,7 @@ func init() {
 	originBytes = make([]byte, MaxPg)
 }
 
-func (this *Common) Ping(domain string, PS, Count int) {
+func (this *Cli) Ping(domain string, PS, Count int) {
 	fmt.Println("Start Ping command detection, target address:", domain)
 	var (
 		icmp                      ICMP

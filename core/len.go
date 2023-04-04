@@ -6,7 +6,7 @@ import (
 
 // Len 使用方法是：echo "aabbcc" | gmd len  或者  echo '{"key1": "val1", "key2": "val2"}' | gmd len
 // 作用是返回输出字符串长度或者类字典数据中key的个数
-func (this *Common) Len() {
+func (this *Cli) Len() {
 	obj, in := this.StdinJson()
 	switch obj.(type) {
 	case []interface{}:

@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func (this *Common) Ssh(host, username, password, port, command string) {
+func (this *Cli) Ssh(host, username, password, port, command string) {
 
 	if port == "" {
 		port = "22"
