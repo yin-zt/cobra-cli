@@ -15,4 +15,5 @@ const (
 </seelog>
 `
 	StoreCmd = "/tmp/script/"
+	PID_FILE = "/var/lib/cli/cli.pid"
 )

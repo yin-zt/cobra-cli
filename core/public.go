@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"os"
+	"runtime"
 	"strings"
 )
 
@@ -20,4 +21,14 @@ func (this *Cli) StdinJson() (interface{}, string) {
 		obj = nil
 	}
 	return obj, in
+}
+
+// IsWindows 判断是否为windows操作系统
+func (this *Cli) IsWindows() bool {
+
+	if "windows" == runtime.GOOS {
+		return true
+	}
+	return false
+
 }
