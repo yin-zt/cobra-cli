@@ -17,3 +17,7 @@ const (
 	StoreCmd = "/tmp/script/"
 	PID_FILE = "/var/lib/cli/cli.pid"
 )
+
+var (
+	BENCHMARK = false // 基线校验 || 若为true，则不检验命令的md5
+)
